@@ -1,47 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import Friend from './Friend';
 import AddFriend from './AddFriend';
 
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+function FriendsList() {
+  const [friends, setFriends] = useState([]);
 
-class FriendsList extends React.Component {
-    state = {
-        friends: []
-    };
+  useEffect(() => {
+    axiosWithAuth()
+      .get('/friends')
+      .then(res => {
+        console.log(res);
+        setFriends(res.data);
+      })
+      .catch(err => console.error(err));
+  }, []);
 
-    componentDidMount() {
-        this.getFriends();
-    }
-
-    getFriends = () => {
-        axiosWithAuth()
-            .get('/friends')
-            .then(res  => {
-                console.log('response: ', res.data)
-                this.setState({friends: res.data})
-            })
-            .catch(err => console.log('get request error', err))
-    };
-
-
-    render() {
-
-        return (
-            <>
-            <h3>Friends List</h3>
-            {this.state.friends.map(friend => (
-             <Friend
-                key={friend.id}
-                name={friend.name}
-                age={friend.age}
-                email={friend.email}
-                />
-            ))}
-                <AddFriend />
-            </>
-        )
-    }
-
+  return (
+    <div>
+      <h2>FriendsList</h2>
+      {friends.map(friend => (
+        <Friend friend={friend} />
+      ))}
+      <AddFriend />
+    </div>
+  );
 }
 
 export default FriendsList;
