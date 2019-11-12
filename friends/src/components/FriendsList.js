@@ -22,7 +22,7 @@ function FriendsList() {
       <h2>FriendsList</h2>
       <div className='friend-box'>
         {friends.map(friend => (
-          <Friend friend={friend} setFriends={setFriends} />
+          <Friend friend={friend} setFriends={setFriends} key={friend.id}/>
         ))}
       </div>
     </div>
