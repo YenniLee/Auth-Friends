@@ -26,10 +26,13 @@ code {
 .friend {
   border: 1px solid black;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  margin: 5px;
-  height: 200px;
-  padding: 10px;
-  width: 30%;
+  margin: 5px auto;
+  width: 45%;
+}
+
+#x {
+  width: 40px;
 }
 
