@@ -6,6 +6,7 @@ class AddFriend extends React.Component {
     state = {
         name: '',
         age: '',
+        food: '',
         email: ''
     };
 
@@ -31,27 +32,35 @@ class AddFriend extends React.Component {
             <>
                 <form onSubmit={this.addFriend}>
                     <input
-                    type="text"
-                    placeholder="name"
-                    name="name"
-                    onChange={this.handleChange}
-                    value={this.state.name}
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        onChange={this.handleChange}
+                        value={this.state.name}
                     />
 
                     <input
-                    type="text"
-                    placeholder="age"
-                    name="age"
-                    onChange={this.handleChange}
-                    value={this.state.age}
+                        type="text"
+                        placeholder="Age"
+                        name="age"
+                        onChange={this.handleChange}
+                        value={this.state.age}
                     />
 
                     <input
-                    type="text"
-                    placeholder="email"
-                    name="email"
-                    onChange={this.handleChange}
-                    value={this.state.email}
+                        type="text"
+                        placeholder="Favorite Food"
+                        name="food"
+                        onChange={this.handleChange}
+                        value={this.state.food}
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="Email"
+                        name="email"
+                        onChange={this.handleChange}
+                        value={this.state.email}
                     />
                     <button>Add Friend</button>
                 </form>

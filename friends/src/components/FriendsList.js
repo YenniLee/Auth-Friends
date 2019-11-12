@@ -18,11 +18,13 @@ function FriendsList() {
 
   return (
     <div>
-      <h2>FriendsList</h2>
-      {friends.map(friend => (
-        <Friend friend={friend} />
-      ))}
       <AddFriend />
+      <h2>FriendsList</h2>
+      <div className='friend-box'>
+        {friends.map(friend => (
+          <Friend friend={friend} />
+        ))}
+      </div>
     </div>
   );
 }
