@@ -36,3 +36,10 @@ code {
   width: 40px;
 }
 
+.nav {
+  display: flex; 
+  justify-content: space-between;
+  width: 240px;
+  margin: 20px auto;
+}
+
